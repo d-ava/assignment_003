@@ -7,30 +7,34 @@ import com.example.assignment_003.databinding.UserItemBinding
 
 class UserAdapter(private val dataSet:
                   MutableList<UserData>) :
-    RecyclerView.Adapter<UserAdapter.TestViewHolder>() {
+    RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
 
 
     // Create new views (invoked by the layout manager)
 
-    class TestViewHolder( val binding: UserItemBinding) : RecyclerView.ViewHolder(binding.root)
+    class UserViewHolder(val binding: UserItemBinding) : RecyclerView.ViewHolder(binding.root)
 
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): TestViewHolder {
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): UserViewHolder {
         // Create a new view, which defines the UI of the list item
         val binding = UserItemBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
 
 
-        return TestViewHolder(binding)
+        return UserViewHolder(binding)
     }
 
     // Replace the contents of a view (invoked by the layout manager)
-    override fun onBindViewHolder(viewHolder: TestViewHolder, position: Int) {
+    override fun onBindViewHolder(viewHolder: UserViewHolder, position: Int) {
 
         val userItem = dataSet[position]
         viewHolder.binding.tvName.text = userItem.name
        viewHolder.binding.tvLastName.text = userItem.lastName
         viewHolder.binding.email.text = userItem.email
+
+        viewHolder.binding.root.setOnClickListener {
+
+        }
 
 
     }
