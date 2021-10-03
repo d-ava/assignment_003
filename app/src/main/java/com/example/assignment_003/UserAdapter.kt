@@ -1,10 +1,8 @@
 package com.example.assignment_003
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment_003.databinding.UserItemBinding
 
@@ -28,15 +26,23 @@ class UserAdapter(
 
         override fun onClick(v: View?) {
             val position = adapterPosition
+            val btnErase = binding.btnErase
+            val btnUpdate = binding.btnUpdate
             if (position != RecyclerView.NO_POSITION) {
-                listener.onUserClick(position)
+                listener.onEraseClick(btnErase)
+                listener.onUpdateClick(btnUpdate)
+
             }
         }
     }
 
 
     interface OnUserClickListener {
-        fun onUserClick(position: Int)
+        //fun onUserClick(position: Int)
+        fun onEraseClick(btnErase: View)
+        fun onUpdateClick(btnUpdate : View)
+
+
     }
 
 
@@ -56,8 +62,6 @@ class UserAdapter(
         viewHolder.binding.tvName.text = userItem.name
         viewHolder.binding.tvLastName.text = userItem.lastName
         viewHolder.binding.email.text = userItem.email
-
-
 
 
     }

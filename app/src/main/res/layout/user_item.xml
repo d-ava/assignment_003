@@ -40,4 +40,25 @@ app:layout_constraintTop_toBottomOf="@id/tvName"
         app:layout_constraintTop_toBottomOf="@id/tvLastName"
         app:layout_constraintStart_toStartOf="parent"/>
 
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnErase"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_baseline_clear_24"
+
+        app:layout_constraintEnd_toStartOf="@id/btnUpdate"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="60dp"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnUpdate"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_baseline_update_24"
+
+app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="60dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

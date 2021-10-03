@@ -4,12 +4,13 @@ import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.renderscript.ScriptGroup
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.assignment_003.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(), UserAdapter.OnUserClickListener{
+class MainActivity : AppCompatActivity(), UserAdapter.OnUserClickListener {
 
 
     lateinit var binding: ActivityMainBinding
@@ -39,8 +40,6 @@ class MainActivity : AppCompatActivity(), UserAdapter.OnUserClickListener{
         binding.recyclerView.adapter = adapter
 
 
-
-
         val editProfileLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK) {
@@ -55,22 +54,29 @@ class MainActivity : AppCompatActivity(), UserAdapter.OnUserClickListener{
             }
 
 
+        binding.btnAdd.setOnClickListener {
 
-
-
-
-
-
+            Toast.makeText(this, "ADD button clicked", Toast.LENGTH_SHORT).show()
+        }
 
 
     }
 
-    override fun onUserClick(position: Int) {
+    override fun onEraseClick(btnErase: View) {
+        btnErase.setOnClickListener{
+            Toast.makeText(this, "erase button clicked", Toast.LENGTH_SHORT).show()
+        }
 
-       val clickedUser: UserData = data[position]
-        Toast.makeText(this, "# $position name is ${clickedUser.name}  ", Toast.LENGTH_LONG).show()
-        // blabla
+
     }
+
+    override fun onUpdateClick(btnUpdate: View) {
+        btnUpdate.setOnClickListener {
+            Toast.makeText(this, "Update button clicked", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
 
 
     companion object {
