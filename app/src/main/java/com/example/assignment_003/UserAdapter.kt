@@ -28,18 +28,19 @@ class UserAdapter(
             val position = adapterPosition
             val btnErase = binding.btnErase
             val btnUpdate = binding.btnUpdate
-            if (position != RecyclerView.NO_POSITION) {
-                listener.onEraseClick(btnErase)
-                listener.onUpdateClick(btnUpdate)
+            listener.onEraseClick(btnErase, position = adapterPosition)
+            listener.onUpdateClick(btnUpdate)
 
-            }
+        /* if (position != RecyclerView.NO_POSITION) {
+
+            }*/
         }
     }
 
 
     interface OnUserClickListener {
         //fun onUserClick(position: Int)
-        fun onEraseClick(btnErase: View)
+        fun onEraseClick(btnErase: View, position:Int)
         fun onUpdateClick(btnUpdate : View)
 
 
